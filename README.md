@@ -45,5 +45,5 @@ Until the server routine is set up there will be attempts to containerize or con
 | gsm | ffmpeg | forced decoder |
 | iLBC 20ms | ffmpeg | [Costas Katsavounidis](https://www.linkedin.com/pulse/sayhi-saved-audio-messages-ilbc-files-costas-katsavounidis/) |
 | iLBC 20ms | ffmpeg | [Costas Katsavounidis](https://www.linkedin.com/pulse/sayhi-saved-audio-messages-ilbc-files-costas-katsavounidis/) |
-​
+
 Note that codecs for all attempts are configured as monaural, and sampling rates ~8k or bitrates around 8k/16k.
