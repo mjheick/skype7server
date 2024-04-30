@@ -28,14 +28,14 @@ COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) -o $@ $<
 LINK.o.cmdline      = $(LINK.o) -lm $^ $(LDLIBS) -o $@$(EXESUFFIX)
 ARCHIVE.cmdline     = $(AR) $(ARFLAGS) $@ $^ && $(RANLIB) $@
 %$(OBJSUFFIX):%.c
-        $(COMPILE.c.cmdline)
+	$(COMPILE.c.cmdline)
 # Directives
 CINCLUDES += interface src test
 # VPATH e.g. VPATH = src:../headers
 VPATH = ./ \
-        interface \
-        src \
-        test
+	interface \
+	src \
+	test
 # Variable definitions
 LIB_NAME = SKP_SILK_SDK
 TARGET = $(LIBPREFIX)$(LIB_NAME)$(LIBSUFFIX)
@@ -48,21 +48,21 @@ DECODER_OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(DECODER_SRCS_C))
 SIGNALCMP_SRCS_C = test/signalCompare.c
 SIGNALCMP_OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(SIGNALCMP_SRCS_C))
 LIBS = \
-        $(LIB_NAME)
+	$(LIB_NAME)
 LDLIBDIRS = ./
 # Rules
 default: all
 all: $(TARGET) encoder decoder signalcompare
 lib: $(TARGET)
 $(TARGET): $(OBJS)
-        $(ARCHIVE.cmdline)
+	$(ARCHIVE.cmdline)
 encoder$(EXESUFFIX): $(ENCODER_OBJS)
-        $(LINK.o.cmdline)
+	$(LINK.o.cmdline)
 decoder$(EXESUFFIX): $(DECODER_OBJS)
-        $(LINK.o.cmdline)
+	$(LINK.o.cmdline)
 signalcompare$(EXESUFFIX): $(SIGNALCMP_OBJS)
-        $(LINK.o.cmdline)
+	$(LINK.o.cmdline)
 clean:
-        $(RM) $(TARGET)* $(OBJS) $(ENCODER_OBJS) $(DECODER_OBJS) \
-                  $(SIGNALCMP_OBJS) $(TEST_OBJS) \
-                  encoder$(EXESUFFIX) decoder$(EXESUFFIX) signalcompare$(EXESUFFIX)
+	$(RM) $(TARGET)* $(OBJS) $(ENCODER_OBJS) $(DECODER_OBJS) \
+		$(SIGNALCMP_OBJS) $(TEST_OBJS) \
+		encoder$(EXESUFFIX) decoder$(EXESUFFIX) signalcompare$(EXESUFFIX)
